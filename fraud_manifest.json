@@ -1,0 +1,86 @@
+{
+  "schemes": [
+    {
+      "type": "fast_chain",
+      "participants": [
+        "a9fbfa90-0834-41ed-8bd8-5ce3f8b5a8a3",
+        "62b0338b-9a49-408c-b87d-79ec59ff337c",
+        "e6f4fa94-2f0b-4512-8e8a-6d40a1acf153",
+        "358131a7-b1e2-4445-9010-9ea989248803"
+      ],
+      "events": [
+        "e9fe9bae-a7de-41d9-bc77-1ea97394653c",
+        "4bf0f992-f7c6-42b7-a57e-62fc688cd6b4",
+        "fcddc099-3d47-4f56-9d2b-ad7eb5c91fbd"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "49075d31-438a-48fb-8fcd-f349209d75ab",
+        "bf27f9c0-21aa-45db-82ae-b2717a1bd9eb",
+        "b633f5c0-25f1-49dc-8d08-ec3164e652b7"
+      ],
+      "events": [
+        "a67fd4d4-a8e3-4ddc-8989-3bf29dcb12cc",
+        "ac872b39-a159-466c-ab63-6ba0e51e8fa4",
+        "db527fd0-42cf-4116-9122-062759c6f1c9"
+      ],
+      "device_id": "e3d80647-a71d-4e00-a19b-34fabf751a49"
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "e6f4fa94-2f0b-4512-8e8a-6d40a1acf153",
+        "be490d14-2ae1-4703-aa13-5bd522cc4999",
+        "bf27f9c0-21aa-45db-82ae-b2717a1bd9eb",
+        "fe5f6c6a-195a-42fe-9a87-52ee7dfad8ab"
+      ],
+      "events": [
+        "c78811f0-dbbb-430f-a9c2-8402bb35ad04",
+        "18e8898e-4015-4621-8481-8e57d7df4742",
+        "c6433f47-e766-4b0c-a24e-b45e7526034b"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "ff63b976-10c4-486b-ba17-790fd51e9af3",
+        "d9fd7d98-a047-4b30-87b0-97802288c86a",
+        "358131a7-b1e2-4445-9010-9ea989248803"
+      ],
+      "events": [
+        "be5504e7-ed5d-4662-80f8-9a8159b492f7",
+        "4837db6c-bb00-44db-864e-7bf290d3eeec",
+        "f97926d3-664b-4bbe-8502-57c4741ed9c0"
+      ],
+      "device_id": "5546f236-bc47-440a-9907-945b4e811424"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "702b01ce-2ded-4a0c-97fe-9665afc900e4",
+        "358131a7-b1e2-4445-9010-9ea989248803",
+        "fe5f6c6a-195a-42fe-9a87-52ee7dfad8ab"
+      ],
+      "events": [
+        "49ac7b17-32f3-4e96-83e8-0fdeedabb35f",
+        "587b9511-88d2-48b3-bff2-b50007caddec",
+        "eef58af2-3812-4fa2-a02c-7a87d5590e2e"
+      ]
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "a9fbfa90-0834-41ed-8bd8-5ce3f8b5a8a3",
+        "ff63b976-10c4-486b-ba17-790fd51e9af3",
+        "e6f4fa94-2f0b-4512-8e8a-6d40a1acf153"
+      ],
+      "events": [
+        "e08470eb-93bd-4b4b-9fc6-8bcc1de6cbbb",
+        "65397b07-bd7c-4e87-abd4-4858ec5fdbc7",
+        "e6a5ec77-b666-4266-8bcd-20e1e736992c"
+      ]
+    }
+  ]
+}
