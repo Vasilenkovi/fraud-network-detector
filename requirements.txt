@@ -1,6 +1,0 @@
-Django>=5.2,<6.0
-psycopg[binary]>=3.2
-python-dotenv>=1.0
-confluent-kafka>=2.5
-pydantic>=2.7
-Faker>=30.0
