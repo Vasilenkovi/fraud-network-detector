@@ -1,0 +1,193 @@
+openapi: 3.0.0
+info:
+  title: API системы «Граф связей»
+  description: |
+    Контракт для взаимодействия HTML/JS-фронтенда и Django-бэкенда.
+    Здесь описаны все запросы, которые фронтенд делает к серверу через fetch().
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000/api
+    description: Локальный сервер разработки
+
+paths:
+  /alerts/:
+    get:
+      summary: Получить список подозрительных групп (для Очереди)
+      description: Возвращает краткую информацию о всех найденных мошеннических группах для отображения в левой панели.
+      responses:
+        '200':
+          description: Успешный ответ со списком групп
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlertShort'
+
+  /alerts/{id}/:
+    get:
+      summary: Получить детали группы (для Карточки и Графа)
+      description: Возвращает полную информацию о группе по её ID, включая признаки и данные для отрисовки графа.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Уникальный ID группы (например, AL-001)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успешный ответ с деталями группы
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertFull'
+        '404':
+          description: Группа с таким ID не найдена
+
+  /alerts/{id}/decision/:
+    post:
+      summary: Принять решение по группе (Подтвердить/Отклонить)
+      description: Отправляет решение аналитика на сервер и меняет статус группы.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID группы
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: Данные о решении
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum: [confirmed, rejected]
+                  description: Новый статус группы
+                comment:
+                  type: string
+                  description: Комментарий аналитика (обязателен при отклонении)
+            example:
+              status: "confirmed"
+              comment: "Подтверждаю, это точно мошенники"
+      responses:
+        '200':
+          description: Статус успешно обновлен
+        '400':
+          description: Ошибка валидации (например, нет комментария при отклонении)
+
+  /replay/:
+    post:
+      summary: Запустить повторную обработку (Replay)
+      description: Запускает процесс повторного анализа событий за выбранный период времени.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_time:
+                  type: string
+                  format: date-time
+                  example: "2026-01-01T10:00:00Z"
+                end_time:
+                  type: string
+                  format: date-time
+                  example: "2026-01-02T12:00:00Z"
+      responses:
+        '202':
+          description: Задача на обработку успешно создана и запущена в фоне
+        '400':
+          description: Некорректный период времени
+
+components:
+  schemas:
+    AlertShort:
+      type: object
+      description: Краткая информация о группе (для левой панели)
+      properties:
+        id:
+          type: string
+          example: "AL-001"
+        risk_score:
+          type: number
+          example: 0.91
+        status:
+          type: string
+          enum: [new, in_review, confirmed, rejected]
+          example: "new"
+        reason:
+          type: string
+          example: "Общее устройство + быстрая цепочка"
+        created_at:
+          type: string
+          format: date-time
+          example: "2026-01-15T10:15:00Z"
+
+    AlertFull:
+      type: object
+      description: Полная информация о группе (для графа и карточки)
+      allOf:
+        - $ref: '#/components/schemas/AlertShort'
+        - type: object
+          properties:
+            features:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "shared_device"
+                  weight:
+                    type: number
+                    example: 0.35
+                  description:
+                    type: string
+                    example: "3 счёта используют одно устройство"
+            participants:
+              type: array
+              items:
+                type: object
+                properties:
+                  client_id:
+                    type: string
+                    example: "C1"
+                  role:
+                    type: string
+                    example: "Организатор"
+            graph:
+              type: object
+              properties:
+                nodes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      type:
+                        type: string
+                        enum: [client, account, device, ip]
+                      label:
+                        type: string
+                edges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      source:
+                        type: string
+                      target:
+                        type: string
+                      type:
+                        type: string
+                        enum: [transfer, shared_device, shared_ip]
