@@ -1,8 +1,8 @@
 import pytest
 from datetime import datetime, timezone
-from events.sink import DjangoEventSink
-from events.contracts import IncomingEvent
-from events.models import EventLog
+from .sink import DjangoEventSink
+from .contracts import IncomingEvent
+from .models import EventLog
 from unittest.mock import MagicMock
 
 @pytest.mark.django_db
