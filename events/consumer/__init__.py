@@ -67,16 +67,27 @@ class KafkaEventConsumer:
                         reason = f"Ошибка валидации схемы: {str(e)}"
                         rejected_events.append(Rejection(raw=raw_msg, reason=reason))
 
-                # Записываем валидные события в БД
-                if valid_events:
-                    self.sink.save_batch(valid_events)
+                try:
+                    # 1. Записываем валидные события в БД
+                    if valid_events:
+                        self.sink.save_batch(valid_events)
 
-                # Записываем отклонённые сообщения в БД (DLQ)
-                if rejected_events:
-                    self.sink.save_rejected(rejected_events)
+                    # 2. Записываем отклонённые сообщения в БД (DLQ)
+                    if rejected_events:
+                        self.sink.save_rejected(rejected_events)
 
-                # Фиксируем смещение (офсеты) в Kafka только после успешной записи всей пачки в БД
-                self.consumer.commit(asynchronous=False)
+                    # 3. Фиксируем смещения в Kafka ТОЛЬКО после успешной записи всей пачки в БД
+                    if messages:
+                        self.consumer.commit(asynchronous=False)
+
+                except Exception as db_error:
+                    logger.critical(
+                        f"Критический сбой базы данных! Пачка не сохранена, "
+                        f"офсеты Kafka НЕ закоммичены. Ошибка: {db_error}"
+                    )
+                    # Пробрасываем ошибку наверх, чтобы остановить консьюмер
+                    # и не дать ему двигаться по топику дальше
+                    raise db_error
 
         finally:
             self.consumer.close()

@@ -26,10 +26,12 @@ class DjangoEventSink(EventSink):
 
         event_ids = list(unique_events.keys())
 
+        # ИСПРАВЛЕНО: Весь блок от чтения до bulk_create делаем строго атомарным
         with transaction.atomic():
             # 3. Находим ID событий, которые уже есть в базе данных
             existing_ids = set(
                 EventLog.objects.filter(event_id__in=event_ids)
+                .select_for_update()  # Блокируем строки для предотвращения Race Condition
                 .values_list('event_id', flat=True)
             )
 
@@ -47,12 +49,13 @@ class DjangoEventSink(EventSink):
                         source=self.source
                     ))
 
+            inserted = 0
             if to_insert:
-                EventLog.objects.bulk_create(to_insert, ignore_conflicts=True)
+                # ignore_conflicts=True защищает от дублирования при параллельных перезапусках
+                created_objs = EventLog.objects.bulk_create(to_insert, ignore_conflicts=True)
+                inserted = len(created_objs)
 
-            inserted = len(to_insert)
             duplicates = len(events) - inserted
-
             logger.info(f"Сохранено событий: {inserted}, дубликатов отброшено: {duplicates}")
             return SaveResult(inserted, duplicates)
 
