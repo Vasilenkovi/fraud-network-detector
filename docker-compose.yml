@@ -19,5 +19,16 @@ services:
     ports:
       - "9092:9092"
 
+  neo4j:
+    image: neo4j:5.26.0
+    environment:
+      NEO4J_AUTH: neo4j/fraudgraph123
+    ports:
+      - "7474:7474" # Веб-интерфейс Neo4j Browser
+      - "7687:7687" # Bolt-протокол для Python-драйвера
+    volumes:
+      - neo4jdata:/data
+
 volumes:
   pgdata:
+  neo4jdata:

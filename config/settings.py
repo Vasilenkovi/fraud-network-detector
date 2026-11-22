@@ -179,3 +179,9 @@ LOGGING = {
         "events": {"handlers": ["console"], "level": "INFO"},
     },
 }
+
+NEO4J = {
+    "URI": os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
+    "USER": os.environ.get("NEO4J_USER", "neo4j"),
+    "PASSWORD": os.environ.get("NEO4J_PASSWORD", "fraudgraph123"),
+}
