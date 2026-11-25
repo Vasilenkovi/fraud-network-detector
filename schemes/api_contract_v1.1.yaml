@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: API системы «Граф связей»
+  version: 1.1.0
+  description: API рабочего места аналитика Anti-Fraud. Аутентификация выполняется через Django Session Authentication.
+servers:
+  - url: http://localhost:8000/api
+    description: Локальная разработка
+security:
+  - sessionCookie: []
+paths:
+  /alerts/:
+    get:
+      summary: Список подозрительных групп
+      parameters:
+        - in: query
+          name: status
+          schema: { type: string, enum: [new, in_review, confirmed, rejected] }
+        - in: query
+          name: scheme
+          schema: { type: string, enum: [shared_device, fast_chain, cycle_transfer] }
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 200, default: 50 }
+        - in: query
+          name: offset
+          schema: { type: integer, minimum: 0, default: 0 }
+      responses:
+        '200':
+          description: Страница инцидентов
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [count, limit, offset, results]
+                properties:
+                  count: { type: integer }
+                  limit: { type: integer }
+                  offset: { type: integer }
+                  results:
+                    type: array
+                    items: { $ref: '#/components/schemas/AlertShort' }
+        '401': { description: Требуется вход }
+  /alerts/{id}/:
+    get:
+      summary: Детали инцидента и графовый подграф
+      parameters:
+        - $ref: '#/components/parameters/AlertId'
+      responses:
+        '200':
+          description: Детали инцидента
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AlertFull' }
+        '404': { description: Инцидент не найден }
+        '503': { description: Neo4j недоступен или подграф не получен }
+  /alerts/{id}/decision/:
+    post:
+      summary: Зафиксировать решение аналитика
+      parameters:
+        - $ref: '#/components/parameters/AlertId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { type: string, enum: [confirmed, rejected] }
+                comment: { type: string, maxLength: 5000 }
+      responses:
+        '200': { description: Решение сохранено, история добавлена }
+        '400': { description: Ошибка валидации; для rejected обязателен comment }
+        '404': { description: Инцидент не найден }
+  /replay/:
+    post:
+      summary: Поставить повторный анализ в очередь Celery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [start_time, end_time]
+              properties:
+                start_time: { type: string, format: date-time }
+                end_time: { type: string, format: date-time }
+      responses:
+        '202':
+          description: Задача поставлена в очередь
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ReplayRun' }
+        '400': { description: Некорректный временной интервал }
+        '503': { description: Redis/Celery недоступны }
+  /replay/{task_id}/:
+    get:
+      summary: Получить состояние Replay
+      parameters:
+        - in: path
+          name: task_id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Состояние задачи
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ReplayRun' }
+        '404': { description: Задача не найдена }
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: sessionid
+  parameters:
+    AlertId:
+      in: path
+      name: id
+      required: true
+      schema: { type: string }
+  schemas:
+    AlertShort:
+      type: object
+      required: [id, status, reason, created_at]
+      properties:
+        id: { type: string, example: AL-001 }
+        risk_score:
+          type: number
+          nullable: true
+          description: NULL до появления откалиброванной оценки риска; не является ML-оценкой.
+        status: { type: string, enum: [new, in_review, confirmed, rejected] }
+        reason: { type: string }
+        created_at: { type: string, format: date-time }
+    AlertFull:
+      allOf:
+        - $ref: '#/components/schemas/AlertShort'
+        - type: object
+          properties:
+            features:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: { type: string }
+                  description: { type: string }
+            participants:
+              type: array
+              items:
+                type: object
+                properties:
+                  client_id: { type: string }
+                  role: { type: string }
+            graph:
+              type: object
+              properties:
+                nodes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id: { type: string }
+                      type: { type: string, enum: [client, account, device] }
+                      label: { type: string }
+                edges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id: { type: string }
+                      source: { type: string }
+                      target: { type: string }
+                      type: { type: string }
+    ReplayRun:
+      type: object
+      properties:
+        task_id: { type: string, format: uuid }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        status: { type: string, enum: [queued, running, succeeded, failed] }
+        result: { type: object }
+        error: { type: string }
+        created_at: { type: string, format: date-time }
+        started_at: { type: string, format: date-time, nullable: true }
+        finished_at: { type: string, format: date-time, nullable: true }

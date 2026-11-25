@@ -1,0 +1,429 @@
+{
+  "schemes": [
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab",
+        "8734cbc4-85ac-4787-a47e-542083207cb3"
+      ],
+      "events": [
+        "062d327a-59aa-4c5f-9188-daa0e72af872",
+        "245b9f91-6561-4e07-9b0e-ec64844af29a",
+        "4d0e63f3-5562-411c-9f5a-76dda34f1f95"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c",
+        "032be1d1-782e-44b4-9684-e10717e6c836",
+        "ab29ab3d-d9b4-4387-abc5-263a2ecb7d75",
+        "140ca1ad-6413-4346-87b8-39ff20d190d8"
+      ],
+      "events": [
+        "3b0308c4-a561-49ee-af5d-98a811e61dce",
+        "f127eb66-1c1f-45a8-8953-b6efa4d50683",
+        "f65317e1-4e18-46be-a68c-a5af7dccb7ed"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "674d5287-9bad-4afd-8b75-64895c19add9",
+        "ab29ab3d-d9b4-4387-abc5-263a2ecb7d75",
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b"
+      ],
+      "events": [
+        "b4c9bcee-1b7d-4eca-93e5-017cab5953aa",
+        "aecee4dc-f89e-40ca-9b11-d9f963d3088c",
+        "d0f2b210-2747-4db8-a63b-43c4ff9c02d0"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "e3e8e48e-f960-4d68-847d-874eb0644b31",
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef",
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1"
+      ],
+      "events": [
+        "99bf563d-5db5-4b1c-b89e-3fac5a1fb4ac",
+        "0a3e064e-7ece-473e-9637-f2241da616ee",
+        "3247a031-d898-4dcc-86c5-552f494283bf"
+      ],
+      "device_id": "c036feb2-23a9-49c5-acd9-8acb0ff3bb50"
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235",
+        "2cc9ddfa-dde9-45ed-97fc-06cd02f70e1b"
+      ],
+      "events": [
+        "657afee2-aa50-4d0f-b7b4-9818c623ef5f",
+        "cf12a6e3-1608-4852-a2f3-d0c57b01a39c",
+        "386425a5-255d-41b6-98b9-d2a7e0770f74"
+      ],
+      "device_id": "65014a78-c362-4a24-a793-a8dce4864aad"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "ab29ab3d-d9b4-4387-abc5-263a2ecb7d75",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c"
+      ],
+      "events": [
+        "1adf8dfd-fe17-4df6-93ce-999a84ea90fe",
+        "ef6934b8-5800-4459-afc7-7561f25291fd",
+        "6549c408-ce70-41a4-add4-674dda52c1d8"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "e3e8e48e-f960-4d68-847d-874eb0644b31",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "2cc9ddfa-dde9-45ed-97fc-06cd02f70e1b"
+      ],
+      "events": [
+        "7769cd8d-04c5-4c92-910c-cb5f9a50519c",
+        "1251a23d-bd49-47ad-8c3b-326db6b5f526",
+        "e696f3fd-462b-414e-bbd3-2cefb361241b"
+      ],
+      "device_id": "85fb0115-aa1a-4630-ae32-431ce3eb4048"
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "706456f8-b50e-4e22-9626-0a4e8ad93ed9",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b",
+        "674d5287-9bad-4afd-8b75-64895c19add9",
+        "e3e8e48e-f960-4d68-847d-874eb0644b31"
+      ],
+      "events": [
+        "0b2a6294-775c-41ee-828a-cacbb16b3fe0",
+        "77bb862e-a9f4-4090-969c-2772279f80a4",
+        "11047f7c-2d34-42be-8935-ffd6a00f095c"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "ab29ab3d-d9b4-4387-abc5-263a2ecb7d75",
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1",
+        "032be1d1-782e-44b4-9684-e10717e6c836"
+      ],
+      "events": [
+        "1ac703de-bf8f-4595-baa4-b092d70fe6d0",
+        "a082d8d0-ea50-410f-9428-ded960c375de",
+        "b285d87d-4c11-4f63-b427-ea9ed7d57d3a"
+      ],
+      "device_id": "7c4256c6-f960-438c-b45b-22a9fe5548b1"
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b",
+        "ef8c1888-4ee5-49aa-8d2e-0806f1f2c733"
+      ],
+      "events": [
+        "a88d1b79-f6aa-49a2-919e-b2e960a62e1b",
+        "fdd60915-b51d-44c2-90dd-6b71f450282f",
+        "e8a764a3-5579-4fdf-b831-beeab4625f07"
+      ],
+      "device_id": "b2b34cae-ce3d-41bd-8ecf-0bfc4a2f3522"
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1",
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab",
+        "ef8c1888-4ee5-49aa-8d2e-0806f1f2c733"
+      ],
+      "events": [
+        "974d9890-fcec-4b8b-b531-2391bdc6bb97",
+        "a2554047-60c2-4dd1-b757-980e30d9b24a",
+        "5483af60-ef59-4d02-86e6-99c11f3ccef3"
+      ],
+      "device_id": "e5e495a3-0d8d-4b95-812b-f8864c6fdfc9"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "b0ad6348-0728-4308-a597-6fdae4349a9b",
+        "140ca1ad-6413-4346-87b8-39ff20d190d8",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235"
+      ],
+      "events": [
+        "7e9b3b13-5515-40a8-a541-5e25a7f9f30d",
+        "04d23dab-4190-4b3a-ae96-8373c83c887c",
+        "44d10571-1ba2-4381-b89a-e6a0342e9598"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1",
+        "e3e8e48e-f960-4d68-847d-874eb0644b31",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235",
+        "674d5287-9bad-4afd-8b75-64895c19add9"
+      ],
+      "events": [
+        "2b0946c8-fe3d-4e10-a7ad-4da019f59e34",
+        "569555c9-05f7-443f-966a-c53915e6e2d0",
+        "5ceb9fbf-b2ae-494d-8a5d-4951c18a3c79"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "1a11db86-5c67-4f31-9f41-436c049fe218",
+        "032be1d1-782e-44b4-9684-e10717e6c836",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235"
+      ],
+      "events": [
+        "c23e6e48-9b27-4707-b4ce-0bdb9be3c50f",
+        "2679bd47-5712-4913-abfd-e8c1ecd1003e",
+        "e2378982-6e0b-415e-af61-43cf31479b9b"
+      ],
+      "device_id": "1c53273e-78ad-46ae-abe9-5264353ba891"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab",
+        "8734cbc4-85ac-4787-a47e-542083207cb3",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235"
+      ],
+      "events": [
+        "56738674-6b14-4592-a0c3-6ff71297f5ba",
+        "b9cc8132-28bf-4320-8e1f-fd22d29a5bef",
+        "7b12dcb6-1bd2-49d0-a159-7da838a962c0"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab",
+        "e3e8e48e-f960-4d68-847d-874eb0644b31",
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1"
+      ],
+      "events": [
+        "2efbb935-50ed-447f-8c41-abf32262ec82",
+        "21ae7859-87e5-4d97-9359-4affec3270aa",
+        "e65f477e-f59a-459d-9a28-62392900830c"
+      ],
+      "device_id": "50c6e12a-4f33-45f7-a9d0-c3a9f92b4f52"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "1c50723d-2379-40cf-8eaf-d2c60af35d55",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "706456f8-b50e-4e22-9626-0a4e8ad93ed9"
+      ],
+      "events": [
+        "84eedff9-1de0-48b9-8ee4-6b8ba5acd046",
+        "7f4641c7-7121-4bca-aeb5-6745153a8ddc",
+        "c84615de-fe40-429a-becc-dc6cb9765b78"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "2cc9ddfa-dde9-45ed-97fc-06cd02f70e1b",
+        "032be1d1-782e-44b4-9684-e10717e6c836",
+        "4392d958-954a-4441-b407-672da549426a"
+      ],
+      "events": [
+        "aadea325-bdb4-402d-abb1-8d47e5e10be9",
+        "7c352d9d-147a-4358-aebc-5dddf00b62df",
+        "665699e5-ce67-4cee-afd8-be6432bff16d"
+      ],
+      "device_id": "62fc8632-e6f9-43c0-9d7d-dcdd1f06006d"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "032be1d1-782e-44b4-9684-e10717e6c836",
+        "4392d958-954a-4441-b407-672da549426a",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b"
+      ],
+      "events": [
+        "163a7a92-6c0e-483a-b809-d5ced4f14df2",
+        "f837cc4b-7c28-4f83-94df-5c5be299f189",
+        "7140701b-5a3e-4c23-803c-12bf112cf0a2"
+      ]
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "1a11db86-5c67-4f31-9f41-436c049fe218",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef"
+      ],
+      "events": [
+        "c018d92c-efd8-497c-a3d4-91723e4e533e",
+        "0ba0b069-d065-4b9a-9285-2b7ce74bb9ef",
+        "03d9d55b-d1f3-4623-b363-70c425200283"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235",
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef",
+        "8734cbc4-85ac-4787-a47e-542083207cb3",
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c"
+      ],
+      "events": [
+        "eefb4d31-af18-4697-bcac-3d45751d0d91",
+        "e3c983fd-f155-419c-bb9b-4bf1a033230c",
+        "b7506d81-2d48-43a5-9730-92cadd035f83"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "e3e8e48e-f960-4d68-847d-874eb0644b31",
+        "ef8c1888-4ee5-49aa-8d2e-0806f1f2c733",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b"
+      ],
+      "events": [
+        "4c3b4a1e-d564-406e-95d9-45a78522b0d6",
+        "7070dbd5-1c55-4537-a373-d10dae8bbcf9",
+        "cd78a36c-a896-4313-8254-6dcf64f8de53"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "38378c6c-ff87-4c3e-ae96-dd37c35d4c9c",
+        "4392d958-954a-4441-b407-672da549426a",
+        "ab29ab3d-d9b4-4387-abc5-263a2ecb7d75"
+      ],
+      "events": [
+        "b443efaf-5c8f-4daa-9344-f0275b3e01dd",
+        "eccb0294-8bfd-4b91-b891-37478812a71a",
+        "840a8eea-fb76-4bea-a0d1-bb096c1d0c28"
+      ],
+      "device_id": "45178307-5a7b-4e96-ac30-ad4b1e323251"
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "032be1d1-782e-44b4-9684-e10717e6c836",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235",
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab"
+      ],
+      "events": [
+        "65a5a3ba-2210-4dad-aaa2-58f3c3c71ef2",
+        "58b5b6da-1555-4512-b4ef-e5439bd1a821",
+        "2d13b215-beea-46f7-833a-5d3b62298e96"
+      ],
+      "device_id": "82f72e32-863e-46fa-b3d0-eed08f65f34a"
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab",
+        "4392d958-954a-4441-b407-672da549426a",
+        "b0ad6348-0728-4308-a597-6fdae4349a9b",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c"
+      ],
+      "events": [
+        "067e5373-882b-4e05-bfdb-fbecb02fb473",
+        "4ca9656c-d6b9-46bf-b5c2-dea61d68a577",
+        "bd934fbc-7fc2-425c-876f-0ceb85ef28b7"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c",
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1",
+        "1c50723d-2379-40cf-8eaf-d2c60af35d55",
+        "674d5287-9bad-4afd-8b75-64895c19add9"
+      ],
+      "events": [
+        "874d1b79-00e2-4836-85a0-179242358b8c",
+        "1ec96143-a8a8-41a4-99c1-87774dc5f8a5",
+        "c2dbc629-b4b4-427f-a4e7-fb42a5bfb12b"
+      ]
+    },
+    {
+      "type": "fast_chain",
+      "participants": [
+        "140ca1ad-6413-4346-87b8-39ff20d190d8",
+        "1c50723d-2379-40cf-8eaf-d2c60af35d55",
+        "d7cf1096-2bbd-41da-aad3-002b9742bfd1",
+        "c9b3ad49-b84f-4c32-a630-6195cfd0b4ab"
+      ],
+      "events": [
+        "527a628c-7877-4c8e-9a41-38453a0e4c8d",
+        "35610e6c-8d1f-4793-98a1-c5a80505b2e9",
+        "f1fa4ec9-95a4-4ff9-87d0-52ca32b26468"
+      ]
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "ef8c1888-4ee5-49aa-8d2e-0806f1f2c733",
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef",
+        "9221295a-de32-4962-9cac-e8fb3fd77e0c"
+      ],
+      "events": [
+        "97f8c154-4d95-4297-8f76-6b2a4ed2aa66",
+        "a2c3bcc7-d48f-4663-907e-51445892ba5e",
+        "86f37eba-4862-4919-8fc7-7918b8b10ef3"
+      ]
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "30ca9531-e8d7-4de7-a6e6-a1f0fc1e3cef",
+        "7a54c578-9d88-409f-ac85-135f5c395bfe",
+        "8734cbc4-85ac-4787-a47e-542083207cb3"
+      ],
+      "events": [
+        "5b27f911-6471-4351-b725-f7ebb8bd746d",
+        "4d3e1b1b-1fd6-4cb7-acdb-52662155c023",
+        "e14d20fc-1fc0-4f5e-8dfe-21e432778c17"
+      ],
+      "device_id": "f0cfc8a0-6fbd-48e8-8e66-3b2643cdd2fa"
+    },
+    {
+      "type": "shared_device",
+      "participants": [
+        "1c50723d-2379-40cf-8eaf-d2c60af35d55",
+        "706456f8-b50e-4e22-9626-0a4e8ad93ed9",
+        "8e081b39-e960-4ebb-b62e-649b7c4d3235"
+      ],
+      "events": [
+        "074fa73f-57c8-4c0c-a311-5f7cbf659424",
+        "d6c30e5c-b156-4791-9ae4-0e06dda53647",
+        "aacbf2f6-0a5a-44e0-a984-fa6d980dba0b"
+      ],
+      "device_id": "10afc560-0875-40c6-8f9f-ba8d94cea248"
+    },
+    {
+      "type": "cycle_transfer",
+      "participants": [
+        "140ca1ad-6413-4346-87b8-39ff20d190d8",
+        "674d5287-9bad-4afd-8b75-64895c19add9",
+        "032be1d1-782e-44b4-9684-e10717e6c836"
+      ],
+      "events": [
+        "86424a19-f1a1-40d3-b7c5-ff3a0747a709",
+        "886eff36-ebdc-4cf0-a59a-6512f5c0cd5b",
+        "ee531669-6832-4a5c-9ac6-c9ddb272c208"
+      ]
+    }
+  ]
+}
